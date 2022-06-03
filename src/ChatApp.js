@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import AppRouter from './routes/AppRouter';
 
 const ChatApp = () => {
   return (
-    <div>ChatApp</div>
-  )
-}
+    <div>
+      <AppRouter />
+    </div>
+  );
+};
 
-export default ChatApp
+export default ChatApp;
