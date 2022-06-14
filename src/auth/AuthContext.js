@@ -15,10 +15,27 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     const resp = await fetchSinToken('login', { email, password }, 'POST');
-    console.log(resp);
+    if (resp.ok) {
+      localStorage.setItem('token', resp.token);
+      const { usuario } = resp;
+      setAuth({ uid: usuario.uid, checking: true, logged: true, name: usuario.nombre, email: usuario.email });
+      console.log('auth');
+    }
+
+    return resp.ok;
   };
 
-  const register = (name, email, password) => {};
+  const register = async (name, email, password) => {
+    const resp = await fetchSinToken('login/new', { email, password, nombre: name }, 'POST');
+    if (resp.ok) {
+      localStorage.setItem('token', resp.token);
+      const { usuario } = resp;
+      setAuth({ uid: usuario.uid, checking: true, logged: true, name: usuario.nombre, email: usuario.email });
+      console.log('auth new');
+    }
+
+    return resp.ok;
+  };
 
   const verifcaToken = useCallback(() => {}, []);
 
@@ -27,7 +44,7 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       //
-      value={{ login, register, verifcaToken, logout }}
+      value={{ auth, login, register, verifcaToken, logout }}
     >
       {children}
     </AuthContext.Provider>

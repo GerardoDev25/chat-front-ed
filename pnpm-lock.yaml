@@ -8,6 +8,7 @@ specifiers:
   react-dom: ^18.1.0
   react-router-dom: 5.2.0
   react-scripts: 5.0.1
+  sweetalert2: ^11.4.17
   web-vitals: ^2.1.4
 
 dependencies:
@@ -18,6 +19,7 @@ dependencies:
   react-dom: 18.1.0_react@18.1.0
   react-router-dom: 5.2.0_react@18.1.0
   react-scripts: 5.0.1_react@18.1.0
+  sweetalert2: 11.4.17
   web-vitals: 2.1.4
 
 packages:
@@ -8979,6 +8981,10 @@ packages:
       csso: 4.2.0
       picocolors: 1.0.0
       stable: 0.1.8
+    dev: false
+
+  /sweetalert2/11.4.17:
+    resolution: {integrity: sha512-z0iQW5fDdvtoDNle3iHTKunsuNWgPaMifVu0GPtdguR0uVPrvg9gg9bnSQeJ4tx3C7FwJOEnRshxrs6fFItRvw==}
     dev: false
 
   /symbol-tree/3.2.4:
